@@ -4,8 +4,8 @@ import Product from '../Product/Product';
 
 const HomePage = () => {
     return (
-        <div>
-            <Container>
+        <div style={{ backgroundColor: "#232323" }}>
+            <Container >
                 <Grid container>
                     <Grid item md={2}></Grid>
                     <Grid item md={10}>

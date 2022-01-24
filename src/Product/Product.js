@@ -58,9 +58,13 @@ const Product = () => {
 
     return (
 
-        <div>
-            <Typography variant='h2' component="div">Edvora</Typography>
-            <Typography variant='h4' component="div">Products</Typography>
+        <div style={{
+            textAlign: "left"
+        }}>
+            < Typography variant='h2' component="div" sx={{
+                fontSize: "35px", color: "rgba(255, 255, 255, 0.87)", fontWeight: 700, textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+            }}> Edvora</Typography >
+            <Typography variant='h4' component="div" sx={{ fontSize: "25px ", fontWeight: 500, color: "rgba(255, 255, 255, 0.5)", my: "20px" }}>Products</Typography>
             {
                 individualCompany.map(company => {
                     return <Company
@@ -73,7 +77,7 @@ const Product = () => {
                 })
 
             }
-        </div>
+        </div >
     );
 };
 
