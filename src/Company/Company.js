@@ -29,7 +29,7 @@ SwiperCore.use([Navigation]);
 const Company = (props) => {
     const { result, name } = props;
     const filteredProducts = result[name]
-    console.log(filteredProducts)
+    // console.log(filteredProducts)
     return (
         <div>
             <h2 style={{ color: "white", fontSize: "20px", fontWeight: 400, borderBottom: "1px solid rgba(203, 203, 203, 0.5)", paddingBottom: "8px" }}>{name}</h2>

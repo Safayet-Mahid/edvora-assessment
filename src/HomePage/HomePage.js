@@ -1,21 +1,35 @@
 import { Container, Grid } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import Product from '../Product/Product';
 
 const HomePage = () => {
+    const [allcompanies, setAllCompanies] = useState([])
+    useEffect(() => {
+        fetch("https://assessment-edvora.herokuapp.com/")
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setAllCompanies(data)
+                // const unique = [...new Set(data.map(item => item.product_name))];
+                // // console.log(typeof (unique))
+                // setUniqueCompanies(unique)
+
+            })
+    }, [])
+
     return (
         <div style={{ backgroundColor: "#232323" }}>
-            <Container >
+            <div style={{ width: "85%", margin: "auto" }} >
                 <Grid container>
-                    <Grid item md={2}>
-                        <Dropdown></Dropdown>
+                    <Grid item md={2} sx={{ mr: "20px", backgroundColor: "#131313", p: "25px", borderRadius: "15px", width: "228px", }}>
+                        <Dropdown allcompanies={allcompanies}></Dropdown>
                     </Grid>
-                    <Grid item md={10}>
-                        <Product></Product>
+                    <Grid item md={9}>
+                        <Product allcompanies={allcompanies}></Product>
                     </Grid>
                 </Grid>
-            </Container>
+            </div>
 
         </div>
     );

@@ -20,27 +20,29 @@ import SwiperCore, {
 } from 'swiper';
 import { filledInputClasses } from '@mui/material';
 import Company from '../Company/Company';
+import Dropdown from '../Dropdown/Dropdown';
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
 // ????????????????????????????????????????????????????????????
 
-const Product = () => {
+const Product = ({ allcompanies }) => {
 
-    const [allcompanies, setAllCompanies] = useState([])
+    // const [allcompanies, setAllCompanies] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
     const [uniqueCompanies, setUniqueCompanies] = useState([])
-    useEffect(() => {
-        fetch("https://assessment-edvora.herokuapp.com/")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setAllCompanies(data)
-                const unique = [...new Set(data.map(item => item.product_name))];
-                setUniqueCompanies(unique)
+    // useEffect(() => {
+    //     fetch("https://assessment-edvora.herokuapp.com/")
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             // console.log(data)
+    //             setAllCompanies(data)
+    //             const unique = [...new Set(data.map(item => item.product_name))];
+    //             // console.log(typeof (unique))
+    //             setUniqueCompanies(unique)
 
-            })
-    }, [])
+    //         })
+    // }, [])
     // console.log(uniqueCompanies)
 
     const result = allcompanies.reduce(function (r, a) {
@@ -50,9 +52,9 @@ const Product = () => {
     }, Object.create(null));
 
     const individualCompany = Object.keys(result)
+    // const products = Object.keys(uniqueCompanies)
 
-    console.log(individualCompany);
-    console.log(result);
+    // console.log(individualCompany);
 
 
 
@@ -72,11 +74,11 @@ const Product = () => {
                         name={company}
                         result={result}
                     >
-
                     </Company>
                 })
 
             }
+
         </div >
     );
 };
