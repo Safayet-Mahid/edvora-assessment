@@ -30,12 +30,13 @@ const Company = (props) => {
     const { result, name } = props;
     const filteredProducts = result[name]
     // console.log(filteredProducts)
+
     return (
         <div>
             <h2 style={{ color: "white", fontSize: "20px", fontWeight: 400, borderBottom: "1px solid rgba(203, 203, 203, 0.5)", paddingBottom: "8px" }}>{name}</h2>
 
 
-            <Swiper slidesPerView={4} spaceBetween={20} slidesPerGroup={4} loop={true} loopFillGroupWithBlank={true}
+            <Swiper slidesPerView={4} spaceBetween={20} slidesPerGroup={1} loop={true} loopFillGroupWithBlank={true}
 
                 navigation={true} className="mySwiper ">
                 {
@@ -67,12 +68,6 @@ const Company = (props) => {
 
                             </Grid>
                         </Grid>
-
-
-
-
-
-
                     </SwiperSlide>)
                 }
 

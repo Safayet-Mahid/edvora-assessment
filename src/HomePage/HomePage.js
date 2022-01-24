@@ -1,4 +1,4 @@
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import Product from '../Product/Product';
@@ -22,10 +22,11 @@ const HomePage = () => {
         <div style={{ backgroundColor: "#232323" }}>
             <div style={{ width: "85%", margin: "auto" }} >
                 <Grid container>
-                    <Grid item md={2} sx={{ mr: "20px", backgroundColor: "#131313", p: "25px", borderRadius: "15px", width: "228px", }}>
+
+                    <Grid item md={2} xs={12} sx={{ mr: "35px", backgroundColor: "#131313", p: "25px", borderRadius: "15px", width: "228px", }}>
                         <Dropdown allcompanies={allcompanies}></Dropdown>
                     </Grid>
-                    <Grid item md={9}>
+                    <Grid item md={9} xs={12}>
                         <Product allcompanies={allcompanies}></Product>
                     </Grid>
                 </Grid>
