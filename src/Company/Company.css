@@ -22,6 +22,7 @@ body {
   background-color: #131313;
   border-radius: 15px;
   /* position: relative; */
+  margin-bottom: 50px;
 }
 
 .swiper-slide {

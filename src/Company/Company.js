@@ -43,7 +43,7 @@ const Company = (props) => {
                     >
 
                         <Grid container sx={{ backgroundColor: "#232323", color: "white" }} >
-                            <Grid item md={6} sx={{}}>
+                            <Grid item md={5} sx={{}}>
                                 <div style={{ width: "70px", height: "70px", borderRadius: "5px", display: "block", backgroundColor: "white", padding: "2px" }}>
                                     <img
                                         src={singleProduct.image}
@@ -53,11 +53,11 @@ const Company = (props) => {
                                 </div>
                                 <Typography variant='p' component='div' sx={{ mt: "9px", textAlign: "left", fontSize: "11px", color: "rgba(255, 255, 255, 0.6)", lineHeight: "15px" }}>{singleProduct.address.city}, <br />{singleProduct.address.state}</Typography>
                             </Grid>
-                            <Grid item md={6} sx={{ textAlign: "left" }}>
+                            <Grid item md={7} sx={{ textAlign: "left" }}>
                                 <Typography variant='p' component='div' sx={{ fontSize: "15px" }}>{singleProduct.product_name}</Typography>
                                 <Typography variant='p' component='div' sx={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.6)", my: "10px" }}>{singleProduct.brand_name}</Typography>
                                 <Typography variant='p' component='div' sx={{ fontSize: "13px" }}>$ {singleProduct.price}</Typography>
-                                <Typography variant='p' component='div' sx={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.6)", mt: "13px" }}>Date: {new Date(singleProduct.date).toLocaleDateString()}</Typography>
+                                <Typography variant='p' component='div' sx={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.6)", mt: "13px" }}>Date: {new Date(singleProduct.date).toLocaleDateString().replaceAll("/", ":")}</Typography>
 
                             </Grid>
                             <Grid item md={12}>
