@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import Product from '../Product/Product';
@@ -9,12 +9,7 @@ const HomePage = () => {
         fetch("https://assessment-edvora.herokuapp.com/")
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 setAllCompanies(data)
-                // const unique = [...new Set(data.map(item => item.product_name))];
-                // // console.log(typeof (unique))
-                // setUniqueCompanies(unique)
-
             })
     }, [])
 

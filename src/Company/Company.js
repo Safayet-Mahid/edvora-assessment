@@ -1,12 +1,5 @@
-import React, { useEffect } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+import React from 'react';
 import Typography from '@mui/material/Typography';
-import { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -21,7 +14,7 @@ import "./Company.css";
 import SwiperCore, {
     Navigation
 } from 'swiper';
-import { filledInputClasses, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
@@ -29,31 +22,22 @@ SwiperCore.use([Navigation]);
 const Company = (props) => {
     const { result, name } = props;
     const filteredProducts = result[name]
-    // console.log(filteredProducts)
-
     return (
         <div>
             <h2 style={{ color: "white", fontSize: "20px", fontWeight: 400, borderBottom: "1px solid rgba(203, 203, 203, 0.5)", paddingBottom: "8px" }}>{name}</h2>
-
-
             <div className='section'>
                 <Swiper slidesPerView={"auto"} spaceBetween={20} slidesPerGroup={1} loop={true} loopFillGroupWithBlank={true}
-
                     navigation={true} className="mySwiper "
-
                 >
-
                     {
                         filteredProducts.map(singleProduct => <SwiperSlide className='customSwiper'
                         >
-
                             <Grid container sx={{ backgroundColor: "#232323", color: "white", }} >
                                 <Grid item md={4} xs={4}  >
                                     <div style={{ width: "70px", height: "70px", borderRadius: "5px", display: "block", backgroundColor: "white", padding: "2px" }}>
                                         <img
                                             src={singleProduct.image}
-                                            alt="green iguana"
-
+                                            alt=""
                                         />
                                     </div>
                                     <Typography variant='p' component='div' sx={{ mt: "9px", textAlign: "left", fontSize: "11px", color: "rgba(255, 255, 255, 0.6)", lineHeight: "15px" }}>{singleProduct.address.city}, <br />{singleProduct.address.state}</Typography>
@@ -69,17 +53,12 @@ const Company = (props) => {
                                     <Typography variant="body2" color="text.secondary" sx={{ textAlign: "left", fontSize: "11px", color: "rgba(255, 255, 255, 0.6)", mt: "10px" }} >
                                         {singleProduct.discription}
                                     </Typography>
-
                                 </Grid>
                             </Grid>
-
                         </SwiperSlide>)
                     }
-
                 </Swiper>
             </div>
-
-
         </div >
     );
 };

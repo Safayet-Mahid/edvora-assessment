@@ -1,50 +1,15 @@
 import { Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-// import Company from '../Company/Company';
-// ????????????????????????????????
-import { useRef } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import React from 'react';
 import "swiper/css";
 import "swiper/css/pagination"
 import "swiper/css/navigation"
-
 import "../Company/Company.css";
-
-
-// import Swiper core and required modules
 import SwiperCore, {
     Navigation
 } from 'swiper';
-import { filledInputClasses } from '@mui/material';
 import Company from '../Company/Company';
-import Dropdown from '../Dropdown/Dropdown';
-
-// install Swiper modules
 SwiperCore.use([Navigation]);
-// ????????????????????????????????????????????????????????????
-
 const Product = ({ allcompanies }) => {
-
-    // const [allcompanies, setAllCompanies] = useState([])
-    const [filteredProducts, setFilteredProducts] = useState([])
-    const [uniqueCompanies, setUniqueCompanies] = useState([])
-    // useEffect(() => {
-    //     fetch("https://assessment-edvora.herokuapp.com/")
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data)
-    //             setAllCompanies(data)
-    //             const unique = [...new Set(data.map(item => item.product_name))];
-    //             // console.log(typeof (unique))
-    //             setUniqueCompanies(unique)
-
-    //         })
-    // }, [])
-    // console.log(uniqueCompanies)
-
     const result = allcompanies.reduce(function (r, a) {
         r[a.product_name] = r[a.product_name] || [];
         r[a.product_name].push(a);
@@ -52,14 +17,7 @@ const Product = ({ allcompanies }) => {
     }, Object.create(null));
 
     const individualCompany = Object.keys(result)
-    // const products = Object.keys(uniqueCompanies)
-
-    // console.log(individualCompany);
-
-
-
     return (
-
         <div style={{
             textAlign: "left"
         }}>
@@ -76,9 +34,7 @@ const Product = ({ allcompanies }) => {
                     >
                     </Company>
                 })
-
             }
-
         </div >
     );
 };

@@ -1,27 +1,19 @@
 import { Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import "./Dropdown.css"
-
 const Dropdown = ({ allcompanies }) => {
 
     const [selectedProducts, setSelectedProducts] = React.useState('');
     const [selectedProductState, setSelectedProductState] = useState('');
     const [selectedProductCity, setSelectedProductCity] = useState('');
-    console.log(allcompanies)
+
 
 
     // ----------uniqifying-------------
-    // console.log(allcompanies)
     const products = [...new Set(allcompanies.map(item => item.product_name))];
-
-    // const products = Object.keys(result)
-
-
 
     const handleProductChange = (event) => {
         setSelectedProducts(event.target.value);
@@ -32,12 +24,11 @@ const Dropdown = ({ allcompanies }) => {
     const handleCityChange = (event) => {
         setSelectedProductCity(event.target.value);
     };
-    // console.log(selectedProductState.address.state)
     const selectedProductStateList = allcompanies.filter(selected => selected.product_name === selectedProducts)
     const selectedProductCityList = allcompanies.filter(selected => selected.address.state === selectedProductState?.address?.state)
-    console.log(selectedProductStateList)
+
     return (
-        <div style={{}}>
+        <div>
             <Typography variant='h6' component="div" sx={{ borderBottom: "1px solid #cbcbcb", textAlign: "left", pb: "11px", mb: "20px", color: "#a5a5a5" }}>Filters</Typography>
             <div>
 
@@ -60,7 +51,7 @@ const Dropdown = ({ allcompanies }) => {
                     </Select>
                 </FormControl>
 
-                <FormControl fullWidth fullWidth sx={{ mb: "20px", backgroundColor: "#232323", borderRadius: "5px" }}>
+                <FormControl fullWidth sx={{ mb: "20px", backgroundColor: "#232323", borderRadius: "5px" }}>
                     <InputLabel id="demo-simple-select-label" sx={{ color: "white" }}>State</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
@@ -73,7 +64,7 @@ const Dropdown = ({ allcompanies }) => {
 
                         {
                             selectedProductStateList.length !== 0 ? selectedProductStateList.map(product => <MenuItem value={product}>{product.address.state}</MenuItem>) :
-                                allcompanies.map(product => <MenuItem value={product}>{product.address.state}</MenuItem>)
+                                allcompanies.map(product => <MenuItem key={product} value={product}>{product.address.state}</MenuItem>)
                         }
                     </Select>
                 </FormControl>
