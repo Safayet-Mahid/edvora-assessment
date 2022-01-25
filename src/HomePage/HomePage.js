@@ -21,9 +21,10 @@ const HomePage = () => {
     return (
         <div style={{ backgroundColor: "#232323" }}>
             <div style={{ width: "100%", margin: "auto" }} >
+
                 <Grid container>
 
-                    <Grid item md={2} xs={12} sx={{ mr: "35px", backgroundColor: "#131313", p: "25px", borderRadius: "15px", width: "228px", }}>
+                    <Grid item md={2} xs={12} sx={{ mr: "35px", backgroundColor: "#131313", p: "25px", borderRadius: "15px", width: "228px", mb: 4 }}>
                         <Dropdown allcompanies={allcompanies}></Dropdown>
                     </Grid>
                     <Grid item md={9} xs={12} >
