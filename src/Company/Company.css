@@ -74,13 +74,20 @@ img {
   background-color: rgba(203, 203, 203, 0.5);
   margin: 8px 0;
 } */
+
+/* .swiper-wrapper {
+  position: relative;
+} */
 .swiper-button-prev::after {
   content: "";
 }
-.swiper-button-next {
-  /* position: relative; */
-}
+/* .swiper-button-next {
+  position: absolute;
+  color: white;
+  right: -20px;
+} */
 .swiper-button-next::after {
   color: white;
-  position: absolute;
+  /* position: absolute; */
+  /* right: -20px; */
 }

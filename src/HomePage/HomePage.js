@@ -26,7 +26,7 @@ const HomePage = () => {
                     <Grid item md={2} xs={12} sx={{ mr: "35px", backgroundColor: "#131313", p: "25px", borderRadius: "15px", width: "228px", }}>
                         <Dropdown allcompanies={allcompanies}></Dropdown>
                     </Grid>
-                    <Grid item md={9} xs={12}>
+                    <Grid item md={9} xs={12} >
                         <Product allcompanies={allcompanies}></Product>
                     </Grid>
                 </Grid>
